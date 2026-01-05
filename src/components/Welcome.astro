@@ -1,0 +1,235 @@
+---
+import logo from "../assets/react-calendar-list.svg";
+import { CalendarList } from "@jordif/react-calendar-list/CalendarList";
+
+type Post = {
+  date: Date;
+  url?: string;
+  className?: string;
+};
+
+const posts: Post[] = [
+  {
+    date: new Date(2025, 11, 17),
+    url: "https://web.dev/blog/lcp-and-inp-are-now-baseline-newly-available",
+    className: "cwv",
+  },
+  {
+    date: new Date(2025, 11, 16),
+    url: "https://web.dev/blog/web-platform-12-2025",
+    className: "css",
+  },
+  {
+    date: new Date(2025, 11, 11),
+    url: "https://web.dev/blog/upvote-features",
+    className: "baseline",
+  },
+  {
+    date: new Date(2025, 11, 9),
+    url: "https://web.dev/blog/baseline-digest-nov-2025",
+    className: "baseline",
+  },
+  {
+    date: new Date(2025, 11, 2),
+    url: "https://web.dev/blog/announcing-baseline-in-action",
+    className: "baseline",
+  },
+  {
+    date: new Date(2025, 10, 26),
+    url: "https://web.dev/blog/web-platform-11-2025",
+    className: "platform",
+  },
+  {
+    date: new Date(2025, 10, 25),
+    url: "https://web.dev/blog/webgpu-supported-major-browsers",
+    className: "webgpu",
+  },
+  {
+    date: new Date(2025, 10, 11),
+    url: "https://web.dev/blog/baseline-digest-oct-2025",
+    className: "baseline",
+  },
+  {
+    date: new Date(2025, 9, 30),
+    url: "https://web.dev/blog/web-platform-10-2025",
+    className: "platform",
+  },
+  {
+    date: new Date(2025, 9, 27),
+    url: "https://web.dev/blog/baseline-hackathon-2025-winners",
+    className: "baseline",
+  },
+];
+---
+
+<div id="container">
+  <main>
+    <section id="hero">
+      <header id="header">
+        <img src={logo.src} width="28" height="28" alt="" />
+        <h1>React Calendar List</h1>
+      </header>
+      <h2 class="intro">
+        This demo displays a list of posts from web.dev in a calendar format.
+      </h2>
+      <div class="calendar">
+        <CalendarList posts={posts} />
+      </div>
+      <section id="links">
+        <a class="button" href="https://github.com/jordif/react-calendar-list"
+          >View on Github <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-github"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+            ></path>
+          </svg>
+        </a>
+      </section>
+    </section>
+  </main>
+</div>
+
+<style is:global>
+  #container {
+    font-family:
+      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+      sans-serif;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  #hero {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    min-height: 100vh;
+  }
+
+  #header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  h2 {
+    text-align: center;
+    margin: 0.5em 0;
+    font-weight: normal;
+    color: #111827;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  #links {
+    display: flex;
+    gap: 16px;
+  }
+
+  #links a {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #111827;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  #links a:hover {
+    color: rgb(78, 80, 86);
+  }
+
+  #links a svg {
+    height: 1em;
+    margin-left: 8px;
+  }
+
+  #links a.button {
+    color: white;
+    background: linear-gradient(83.21deg, #2188ff 0%, #61dafb 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+  }
+
+  #links a.button:hover {
+    color: rgb(230, 230, 230);
+    box-shadow: none;
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2.5rem 4rem;
+    place-items: start center;
+    width: fit-content;
+    margin: 2rem auto 3rem;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .calendar table {
+    width: fit-content;
+    border-collapse: collapse;
+  }
+
+  .calendar table th,
+  .calendar table td {
+    padding: 0.15rem 0.1rem;
+    height: 24px;
+    width: 32px;
+  }
+
+  .calendar table th {
+    font-weight: 400;
+    font-size: 12px;
+    padding: 0.15rem 0.1rem;
+    text-align: left;
+  }
+
+  .calendar table thead tr:first-child th {
+    text-transform: uppercase;
+    padding: 0.15rem 0.1rem;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+  }
+
+  .calendar table td a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    background-color: #2188ff;
+    font-weight: bold;
+    color: white;
+    aspect-ratio: 1 / 1;
+    width: 20px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 50%;
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    .calendar {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
